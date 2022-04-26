@@ -1,7 +1,5 @@
 import sys
 import random
-
-from attr import has
 class HashTable:
     def __init__(self, sz, stp):
         self.size = sz
@@ -58,9 +56,9 @@ class HashTable:
             if self.slots[i] == value:
                 return i
         return None
-#hash = HashTable(17,3)
-#for i in range(20):
-    #print(hash.put(str(random.randint(0,17))))
+hash = HashTable(17,3)
+for i in range(20):
+    print(hash.put(str(random.randint(0,17))))
 
-#for i in range(17):
-    #print(hash.find(str(random.randint(0,17))))
+for i in range(17):
+    print(hash.find(str(random.randint(0,17))))
