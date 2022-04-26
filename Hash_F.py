@@ -8,9 +8,6 @@ class HashTable:
 
     def hash_fun(self, value):
          idx_of_slot = sys.getsizeof(value)
-         # в качестве value поступают строки!
-
-         # всегда возвращает корректный индекс слота
          return idx_of_slot
     def seek_slot(self, value):
         idx = 0
@@ -56,9 +53,3 @@ class HashTable:
             if self.slots[i] == value:
                 return i
         return None
-hash = HashTable(17,3)
-for i in range(20):
-    print(hash.put(str(random.randint(0,17))))
-
-for i in range(17):
-    print(hash.find(str(random.randint(0,17))))
