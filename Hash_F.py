@@ -42,6 +42,7 @@ class HashTable:
         slot_num = self.seek_slot(value)
         if slot_num is not None:
             self.slots[slot_num] = value
+            return slot_num
         else:
             return None
          # возвращается индекс слота или None,
