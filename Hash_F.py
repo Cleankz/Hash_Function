@@ -54,4 +54,3 @@ class HashTable:
             if self.slots[i] == value:
                 return i
         return None
-ass = HashTable()
