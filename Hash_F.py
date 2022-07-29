@@ -10,22 +10,22 @@ class HashTable:
          idx_of_slot = sys.getsizeof(value)
          return idx_of_slot
     def seek_slot(self, value):
-        idx = 0
+        IDX_EMPTY_SLOT = 0 # idx - IDX_EMPTY_SLOT
         for i in range(len(self.slots)):
             if self.slots[i] is not None:
-                idx = (idx + self.hash_fun(self.slots[i]))
-        idx = idx % self.size
-        if idx == 0 and self.slots[idx] is None:
-            return idx
+                IDX_EMPTY_SLOT = (IDX_EMPTY_SLOT + self.hash_fun(self.slots[i]))
+        IDX_EMPTY_SLOT = IDX_EMPTY_SLOT % self.size
+        if IDX_EMPTY_SLOT == 0 and self.slots[IDX_EMPTY_SLOT] is None:
+            return IDX_EMPTY_SLOT
         a = 0
-        if idx > len(self.slots) - 1  or self.slots[idx] is not None:
+        if IDX_EMPTY_SLOT > len(self.slots) - 1  or self.slots[IDX_EMPTY_SLOT] is not None:
             for i in range(1,len(self.slots)):
-                a =  a + idx + (i * self.hash_fun(self.slots[i]))
+                a =  a + IDX_EMPTY_SLOT + (i * self.hash_fun(self.slots[i]))
                 new_id = a % len(self.slots)
                 if self.slots[new_id] is None:
                     return new_id
-        if self.slots[idx] is None:
-            return idx
+        if self.slots[IDX_EMPTY_SLOT] is None:
+            return IDX_EMPTY_SLOT
         x = 0
         for i in range(len(self.slots)):
             if self.slots[i] is not None:
